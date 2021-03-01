@@ -1,7 +1,7 @@
 {
     "name": "ninemanga",
-    "icon": "http://www.ninemanga.com/files/img/ninemanga.png",
-    "url": "http://www.ninemanga.com/",
+    "icon": "https://www.ninemanga.com/files/img/ninemanga.png",
+    "url": "https://www.ninemanga.com/",
     "index": "index.js",
     "book": "book.js",
     "chapter": "chapter.js",
