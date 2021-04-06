@@ -5,9 +5,10 @@ class SettingsController extends glib.Collection {
         let lang = 'en';
         if (typeof(glib.Collection.getLanguage) === 'function') {
             lang = glib.Collection.getLanguage();
-            if (['en', 'es', 'ru', 'de', 'it', 'fr', 'pt'].indexOf(lang) < 0) 
+            let arr = lang.split('-');
+            if (['en', 'es', 'ru', 'de', 'it', 'fr', 'pt'].indexOf(arr[0]) < 0) {
                 lang = 'en';
-            if (lang === 'pt') lang = 'br';
+            }
         }
         this.setData([
             glib.SettingItem.new(
@@ -37,7 +38,7 @@ class SettingsController extends glib.Collection {
                     value: 'it'
                 }, {
                     name: 'Brasil',
-                    value: 'br'
+                    value: 'pt'
                 }, {
                     name: 'Français',
                     value: 'fr'
