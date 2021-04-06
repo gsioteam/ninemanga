@@ -2,6 +2,13 @@
 
 class SettingsController extends glib.Collection {
     reload(data, cb) {
+        let lang = 'en';
+        if (typeof(glib.Collection.getLanguage) === 'function') {
+            lang = glib.Collection.getLanguage();
+            if (['en', 'es', 'ru', 'de', 'it', 'fr', 'pt'].indexOf(lang) < 0) 
+                lang = 'en';
+            if (lang === 'pt') lang = 'br';
+        }
         this.setData([
             glib.SettingItem.new(
                 glib.SettingItem.Type.Header,
@@ -12,7 +19,7 @@ class SettingsController extends glib.Collection {
                 glib.SettingItem.Type.Options,
                 "language",
                 "Language",
-                "en",
+                lang,
                 [{
                     name: 'English',
                     value: 'en'
