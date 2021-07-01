@@ -37,7 +37,6 @@ class ParsedCollection extends Collection {
         let results = [];
         for (let node of nodes) {
             let item = glib.DataItem.new();
-            item.type = glib.DataItem.Type.Book;
             let link = node.querySelector('.book-list a');
             item.link = link.attr('href');
             item.title = link.querySelector('b').text;

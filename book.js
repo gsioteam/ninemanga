@@ -22,7 +22,6 @@ class BookCollection extends Collection {
             for (let node of nodes) {
                 let anode = node.querySelector('div.chapter-name.long a');
                 let item = glib.DataItem.new();
-                item.type = glib.DataItem.Type.Chapter;
                 console.log("mark 4");
                 let name = anode.text.trim();
                 item.title = name.replace(/new$/, '');

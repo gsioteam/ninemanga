@@ -83,7 +83,6 @@ class HomeCollection extends Collection {
             let books = tab_content.querySelectorAll('li a');
             for (let link of books) {
                 let item = glib.DataItem.new();
-                item.type = glib.DataItem.Type.Book;
                 item.title = link.attr('title');
                 item.link = link.attr('href');
                 item.picture = link.querySelector('img').attr('src');
@@ -100,7 +99,6 @@ class HomeCollection extends Collection {
         let nodes = box.querySelectorAll('dl');
         for (let node of nodes) {
             let item = glib.DataItem.new();
-            item.type = glib.DataItem.Type.Book;
             let link = node.querySelector('.book-list a');
             item.link = link.attr('href');
             item.title = link.querySelector('b').text;

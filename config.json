@@ -3,8 +3,10 @@
     "icon": "https://www.ninemanga.com/files/img/ninemanga.png",
     "url": "https://www.ninemanga.com/",
     "index": "index.js",
-    "book": "book.js",
-    "chapter": "chapter.js",
+    "collections": [
+        "book.js",
+        "chapter.js"
+    ],
     "search": {
         "src": "search.js",
         "data": {
