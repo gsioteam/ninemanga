@@ -91,7 +91,6 @@ class ParsedDesktopCollection extends DesktopCollection {
         let results = [];
         for (let node of nodes) {
             let item = glib.DataItem.new();
-            item.type = glib.DataItem.Type.Book;
             let link = node.querySelector('dt a');
             item.link = link.attr('href');
             item.picture = link.querySelector('img').attr('src');
