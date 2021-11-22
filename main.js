@@ -34,6 +34,14 @@ class MainController extends Controller {
             this.reload();
         }
 
+        this._reload = ()=>{
+            this.reload();
+        };
+        NotificationCenter.addObserver("reload", this._reload);
+    }
+
+    unload() {
+        NotificationCenter.removeObserver("reload", this._reload);
     }
 
     async onPressed(index) {
@@ -82,6 +90,7 @@ class MainController extends Controller {
 
     getLanguage() {
         let lan = localStorage['cached_language'];
+        console.log(`Get language ${lan}`);
         if (lan) return lan;
 
         for (let name of supportLanguages) {
@@ -115,7 +124,6 @@ class MainController extends Controller {
                 time: new Date().getTime(),
                 items: items,
             });
-            console.log(`Items ${items.length}`);
             this.setState(()=>{
                 this.data.list = items;
                 this.data.loading = false;
