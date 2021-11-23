@@ -1,4 +1,4 @@
-const supportLanguages = require('./supoort_languages');
+const supportLanguages = require('./support_languages');
 
 class MainController extends Controller {
 
@@ -90,7 +90,6 @@ class MainController extends Controller {
 
     getLanguage() {
         let lan = localStorage['cached_language'];
-        console.log(`Get language ${lan}`);
         if (lan) return lan;
 
         for (let name of supportLanguages) {
