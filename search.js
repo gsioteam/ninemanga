@@ -70,6 +70,7 @@ class SearchController extends Controller {
                 this.setState(()=>{
                     this.data.list = list;
                     this.data.loading = false;
+                    this.data.hasMore = list.length > 0;
                 });
             } catch(e) {
                 showToast(`${e}\n${e.stack}`);
@@ -112,11 +113,15 @@ class SearchController extends Controller {
         let text = this.key;
         if (!text) return;
         try {
+            this.setState(()=>{
+                this.data.loading = true;
+            });
             let list = await this.request(this.makeURL(text, 0));
             this.page = 0;
             this.setState(()=>{
                 this.data.list = list;
                 this.data.loading = false;
+                this.data.hasMore = list.length > 0;
             });
         } catch(e) {
             showToast(`${e}\n${e.stack}`);
@@ -129,6 +134,9 @@ class SearchController extends Controller {
     async onLoadMore() {
         let page = this.page + 1;
         try {
+            this.setState(()=>{
+                this.data.loading = true;
+            });
             let list = await this.request(this.makeURL(this.key, page));
             this.page = page;
             this.setState(()=>{
@@ -136,6 +144,7 @@ class SearchController extends Controller {
                     this.data.list.push(item);
                 }
                 this.data.loading = false;
+                this.data.hasMore = list.length > 0;
             });
         } catch(e) {
             showToast(`${e}\n${e.stack}`);
