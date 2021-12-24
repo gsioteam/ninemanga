@@ -93,9 +93,10 @@ class SearchController extends Controller {
         });
     }
 
-    onPressed(index) {
-        var data = this.data.list[index];
-        openVideo(data.link, data);
+    async onPressed(index) {
+        await this.navigateTo('book', {
+            data: this.data.list[index]
+        });
     }
 
     onHintPressed(index) {
