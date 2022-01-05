@@ -1,4 +1,4 @@
-const supportLanguages = require('./supoort_languages');
+const supportLanguages = require('./support_languages');
 
 class SettingsController extends Controller {
 
