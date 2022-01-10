@@ -182,21 +182,23 @@ class MainController extends Controller {
         }
 
         let box = doc.querySelector('.middle-box');
-        results.push({
-            header: true,
-            title: box.querySelector('h1').text.trim(),
-        });
-
-        let nodes = box.querySelectorAll('dl');
-        for (let node of nodes) {
-            let link = node.querySelector('.book-list a');
+        if (box) {
             results.push({
-                link: link.getAttribute('href'),
-                title: link.querySelector('b').text,
-                subtitle: node.querySelector('.book-list > i').text,
-                picture: node.querySelector('dt img').getAttribute('src')
+                header: true,
+                title: box.querySelector('h1').text.trim(),
             });
+            let nodes = box.querySelectorAll('dl');
+            for (let node of nodes) {
+                let link = node.querySelector('.book-list a');
+                results.push({
+                    link: link.getAttribute('href'),
+                    title: link.querySelector('b').text,
+                    subtitle: node.querySelector('.book-list > i').text,
+                    picture: node.querySelector('dt img').getAttribute('src')
+                });
+            }
         }
+
         return results;
     }
 
